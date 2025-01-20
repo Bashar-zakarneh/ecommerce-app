@@ -35,6 +35,10 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<ProductCard products={products} />} />
+        <Route
+          path="/category/:category"
+          element={<ProductCard products={products} />}
+        />
       </Routes>
     </>
   );

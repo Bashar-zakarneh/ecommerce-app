@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { Product } from "../types/product";
 
 interface ProductCardProps {
@@ -5,9 +6,18 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ products }) => {
+  const { category } = useParams<{ category: string }>(); // Get the category from the URL
+
+  // Filter products by category
+  const filteredProducts = category
+    ? products.filter(
+        (product) => product.category.toLowerCase() === category.toLowerCase()
+      )
+    : products;
+
   return (
     <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <div
           key={product.id}
           className="flex flex-col h-full border p-4 rounded-lg shadow hover:shadow-lg transition"
