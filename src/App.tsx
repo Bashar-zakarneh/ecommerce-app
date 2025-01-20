@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "./api/fetchProducts";
@@ -30,11 +31,12 @@ const App = () => {
   }
 
   return (
-    <div>
+    <>
       <Header />
-      {/* Pass products to ProductCard as a prop */}
-      <ProductCard products={products} />
-    </div>
+      <Routes>
+        <Route path="/" element={<ProductCard products={products} />} />
+      </Routes>
+    </>
   );
 };
 
