@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { getAllProducts } from "./api/fetchProducts";
 import { Product } from "./types/product";
 import ProductCard from "./components/ProductCard";
-
+import ProductDetails from "./pages/ProductDetails";
+import LoginPage from "./pages/Login";
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -39,6 +40,9 @@ const App = () => {
           path="/category/:category"
           element={<ProductCard products={products} />}
         />
+
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );

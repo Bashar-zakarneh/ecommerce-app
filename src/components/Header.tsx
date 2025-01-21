@@ -53,6 +53,12 @@ const Header = () => {
             ) : (
               <li>Loading Categories...</li>
             )}
+
+            <li>
+              <Link to="/login" className="text-white">
+                Login
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
