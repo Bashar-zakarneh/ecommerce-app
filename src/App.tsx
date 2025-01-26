@@ -6,6 +6,8 @@ import { Product } from "./types/product";
 import ProductCard from "./components/ProductCard";
 import ProductDetails from "./pages/ProductDetails";
 import LoginPage from "./pages/Login";
+import CartPage from "./pages/CartPage";
+
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -43,6 +45,7 @@ const App = () => {
 
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </>
   );
